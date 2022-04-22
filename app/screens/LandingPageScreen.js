@@ -38,7 +38,7 @@ function LandingPageScreen(props) {
 
             {/* Buttons */}
             <View style={{ position: 'absolute', bottom: RFPercentage(10), overflow: 'hidden', width: RFPercentage(38), height: RFPercentage(7.5), backgroundColor: '#3C3C3C', borderRadius: RFPercentage(2), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }} >
-                <TouchableOpacity onPress={() => setActiveButton('1')} activeOpacity={0.8} style={{ justifyContent: 'center', alignItems: 'center', width: RFPercentage(19), height: RFPercentage(7.5), backgroundColor: activeButton == '1' ? Colors.secondary : '#3C3C3C', borderRadius: RFPercentage(2) }} >
+                <TouchableOpacity onPress={() => [setActiveButton('1'), props.navigation.navigate("SigninScreen")]} activeOpacity={0.8} style={{ justifyContent: 'center', alignItems: 'center', width: RFPercentage(19), height: RFPercentage(7.5), backgroundColor: activeButton == '1' ? Colors.secondary : '#3C3C3C', borderRadius: RFPercentage(2) }} >
                     <Text style={{ fontWeight: 'bold', color: Colors.white, fontSize: RFPercentage(2) }} >
                         Sign in
                     </Text>
