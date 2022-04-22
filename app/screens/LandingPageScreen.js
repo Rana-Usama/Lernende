@@ -44,7 +44,7 @@ function LandingPageScreen(props) {
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => setActiveButton('2')} activeOpacity={0.8} style={{ justifyContent: 'center', alignItems: 'center', width: RFPercentage(19), height: RFPercentage(7.5), backgroundColor: activeButton == '2' ? Colors.secondary : '#3C3C3C', borderRadius: RFPercentage(2) }} >
+                <TouchableOpacity onPress={() => [setActiveButton('2'), props.navigation.navigate("RegisterScreen")]} activeOpacity={0.8} style={{ justifyContent: 'center', alignItems: 'center', width: RFPercentage(19), height: RFPercentage(7.5), backgroundColor: activeButton == '2' ? Colors.secondary : '#3C3C3C', borderRadius: RFPercentage(2) }} >
                     <Text style={{ fontWeight: 'bold', color: Colors.white, fontSize: RFPercentage(2) }} >
                         Register
                     </Text>
