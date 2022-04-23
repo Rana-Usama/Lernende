@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, TextInput } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
@@ -61,8 +61,8 @@ function RegisterScreen(props) {
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: "center", backgroundColor: Colors.primary }}>
             <LoadingModal show={indicator} />
 
-            <View style={{ marginTop: RFPercentage(15), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                <Text style={{ fontWeight: '600', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
+            <View style={{ marginTop: RFPercentage(14), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
+                <Text style={{ fontFamily: 'Rubik_700Bold', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
                     Register
                 </Text>
             </View>
@@ -70,16 +70,27 @@ function RegisterScreen(props) {
             <ScrollView style={{ flex: 1, width: '100%' }} >
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
+                    {/*First Two Row Input fields */}
+                    <View style={{ marginTop: RFPercentage(5), width: '80%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' }} >
+                        <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', width: '48%', height: RFPercentage(8), backgroundColor: Colors.inputFieldBackgroundColor, borderColor: Colors.inputFieldBackgroundColor, borderWidth: RFPercentage(0.2), borderRadius: RFPercentage(1.3) }} >
+                            <TextInput placeholder='Name' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
+                        </View>
+                        <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', position: 'absolute', right: 0, width: '48%', height: RFPercentage(8), backgroundColor: Colors.inputFieldBackgroundColor, borderColor: Colors.inputFieldBackgroundColor, borderWidth: RFPercentage(0.2), borderRadius: RFPercentage(1.3) }} >
+                            <TextInput placeholder='Surname' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
+                        </View>
+                    </View>
+
                     {/* Input field */}
-                    <View style={{ marginTop: RFPercentage(12), justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                    <View style={{ marginTop: RFPercentage(2.5), justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         {inputField.map((item, i) => (
-                            <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(1.5) }} >
+                            <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(2.5) }} >
                                 <InputField
                                     placeholder={item.placeholder}
                                     placeholderColor={'#D0D0D0'}
                                     height={RFPercentage(8.5)}
                                     backgroundColor={Colors.inputFieldBackgroundColor}
                                     borderWidth={RFPercentage(0.2)}
+                                    fontFamily={'Rubik_400Regular'}
                                     borderColor={Colors.inputFieldBackgroundColor}
                                     secure={item.secure}
                                     borderRadius={RFPercentage(1.3)}
@@ -94,11 +105,12 @@ function RegisterScreen(props) {
                     </View>
 
                     {/* Register Button */}
-                    <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(15) }}>
+                    <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(12) }}>
                         <MyAppButton
                             title="Register"
                             padding={RFPercentage(2.5)}
                             onPress={() => handleSignup()}
+                            fontFamily={'Rubik_700Bold'}
                             backgroundColor={Colors.secondary}
                             color={Colors.white}
                             bold={true}
@@ -108,11 +120,11 @@ function RegisterScreen(props) {
                     </View>
 
                     <View style={{ flexDirection: 'row', marginTop: RFPercentage(3.5), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center' }} >
+                        <Text style={{ fontFamily: 'Rubik_400Regular', color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center' }} >
                             Already a member?
                         </Text>
-                        <TouchableOpacity activeOpacity={0.8} >
-                            <Text style={{ marginLeft: RFPercentage(1.5), color: Colors.secondary, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
+                        <TouchableOpacity onPress={() => props.navigation.navigate("SigninScreen")} activeOpacity={0.8} >
+                            <Text style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(1.5), color: Colors.secondary, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
                                 Sign in
                             </Text>
                         </TouchableOpacity>

@@ -58,10 +58,10 @@ function SigninScreen(props) {
             <LoadingModal show={indicator} />
 
             <View style={{ marginTop: RFPercentage(15), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                <Text style={{ fontWeight: '600', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
+                <Text style={{ fontFamily: 'Rubik_700Bold', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
                     Welcome
                 </Text>
-                <Text style={{ marginTop: RFPercentage(1.5), color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
+                <Text style={{ fontFamily: 'Rubik_400Regular', marginTop: RFPercentage(1.5), color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
                     We’ve missed you!
                 </Text>
             </View>
@@ -72,7 +72,7 @@ function SigninScreen(props) {
                     {/* Input field */}
                     <View style={{ marginTop: RFPercentage(12), justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         {inputField.map((item, i) => (
-                            <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(1.5) }} >
+                            <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(2) }} >
                                 <InputField
                                     placeholder={item.placeholder}
                                     placeholderColor={'#D0D0D0'}
@@ -82,6 +82,7 @@ function SigninScreen(props) {
                                     borderColor={Colors.inputFieldBackgroundColor}
                                     secure={item.secure}
                                     borderRadius={RFPercentage(1.3)}
+                                    fontFamily={'Rubik_400Regular'}
                                     fontSize={RFPercentage(1.9)}
                                     handleFeild={(text) => handleChange(text, i)}
                                     value={item.value}
@@ -94,7 +95,7 @@ function SigninScreen(props) {
 
                     <View style={{ marginTop: RFPercentage(3), width: '80%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}  >
                         <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0, }}  >
-                            <Text style={{ color: Colors.white, fontSize: RFPercentage(1.8), textAlign: 'center', opacity: 0.8 }} >
+                            <Text style={{ fontFamily: 'Rubik_400Regular', color: Colors.white, fontSize: RFPercentage(1.8), textAlign: 'center', opacity: 0.8 }} >
                                 Reset Password
                             </Text>
                         </TouchableOpacity>
@@ -106,6 +107,7 @@ function SigninScreen(props) {
                             title="Login"
                             padding={RFPercentage(2.5)}
                             onPress={() => handleSignup()}
+                            fontFamily={'Rubik_700Bold'}
                             backgroundColor={Colors.secondary}
                             color={Colors.white}
                             bold={true}
@@ -115,11 +117,11 @@ function SigninScreen(props) {
                     </View>
 
                     <View style={{ flexDirection: 'row', marginTop: RFPercentage(3.5), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center' }} >
+                        <Text style={{ fontFamily: 'Rubik_400Regular', color: Colors.white, fontSize: RFPercentage(1.9), textAlign: 'center' }} >
                             Not a member?
                         </Text>
-                        <TouchableOpacity activeOpacity={0.8} >
-                            <Text style={{ marginLeft: RFPercentage(1.5), color: Colors.secondary, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
+                        <TouchableOpacity onPress={() => props.navigation.navigate("RegisterScreen")} activeOpacity={0.8} >
+                            <Text style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(1.5), color: Colors.secondary, fontSize: RFPercentage(1.9), textAlign: 'center', opacity: 0.8 }} >
                                 Register now
                             </Text>
                         </TouchableOpacity>

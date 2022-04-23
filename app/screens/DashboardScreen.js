@@ -15,10 +15,10 @@ function DashboardScreen(props) {
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: "center", backgroundColor: Colors.primary }}>
 
             <View style={{ marginTop: RFPercentage(20), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                <Text style={{ fontWeight: '600', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
+                <Text style={{ fontFamily: 'Rubik_700Bold', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
                     Dashboard
                 </Text>
-                <Text style={{ marginTop: RFPercentage(1), color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
+                <Text style={{ fontFamily: 'Rubik_400Regular', marginTop: RFPercentage(1), color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
                     Welcome back username!
                 </Text>
             </View>
@@ -27,7 +27,9 @@ function DashboardScreen(props) {
             <View style={{ width: "100%", alignItems: "center", position: 'absolute', bottom: RFPercentage(7) }}>
                 <MyAppButton
                     title="Logout"
+                    onPress={() => props.navigation.navigate("LandingPageScreen")}
                     padding={RFPercentage(2.5)}
+                    fontFamily={'Rubik_700Bold'}
                     backgroundColor={Colors.secondary}
                     color={Colors.white}
                     bold={true}
