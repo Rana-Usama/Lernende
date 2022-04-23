@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     },
     mainHeading2: {
         fontFamily: 'Rubik_700Bold',
-        marginTop: RFPercentage(1),
+        marginTop: RFPercentage(0.7),
         fontWeight: '600',
         color: Colors.white,
         fontSize: RFPercentage(2.5),

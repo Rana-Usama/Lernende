@@ -43,6 +43,7 @@ function SigninScreen(props) {
             showIndicator(false);
             return true;
         }
+        props.navigation.navigate("DashboardScreen")
 
         try {
             // API INTEGRATION WILL COME HERE
@@ -83,7 +84,7 @@ function SigninScreen(props) {
                                     secure={item.secure}
                                     borderRadius={RFPercentage(1.3)}
                                     fontFamily={'Rubik_400Regular'}
-                                    fontSize={RFPercentage(1.9)}
+                                    fontSize={RFPercentage(2)}
                                     handleFeild={(text) => handleChange(text, i)}
                                     value={item.value}
                                     color={Colors.white}

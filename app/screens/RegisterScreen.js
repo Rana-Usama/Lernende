@@ -47,6 +47,7 @@ function RegisterScreen(props) {
             showIndicator(false);
             return true;
         }
+        props.navigation.navigate("SigninScreen")
 
         try {
             // API INTEGRATION WILL COME HERE
@@ -94,7 +95,7 @@ function RegisterScreen(props) {
                                     borderColor={Colors.inputFieldBackgroundColor}
                                     secure={item.secure}
                                     borderRadius={RFPercentage(1.3)}
-                                    fontSize={RFPercentage(1.9)}
+                                    fontSize={RFPercentage(2)}
                                     handleFeild={(text) => handleChange(text, i)}
                                     value={item.value}
                                     color={Colors.white}
@@ -208,14 +209,14 @@ const styles = StyleSheet.create({
     alreadyMemberText: {
         fontFamily: 'Rubik_400Regular',
         color: Colors.white,
-        fontSize: RFPercentage(2),
+        fontSize: RFPercentage(1.9),
         textAlign: 'center'
     },
     signInText: {
         fontFamily: 'Rubik_400Regular',
         marginLeft: RFPercentage(1.5),
         color: Colors.secondary,
-        fontSize: RFPercentage(2),
+        fontSize: RFPercentage(1.9),
         textAlign: 'center',
         opacity: 0.8
     }
