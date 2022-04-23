@@ -58,11 +58,11 @@ function RegisterScreen(props) {
     };
 
     return (
-        <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: "center", backgroundColor: Colors.primary }}>
+        <Screen style={styles.screen}>
             <LoadingModal show={indicator} />
 
-            <View style={{ marginTop: RFPercentage(14), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                <Text style={{ fontFamily: 'Rubik_700Bold', color: Colors.white, fontSize: RFPercentage(2.8), textAlign: 'center' }} >
+            <View style={styles.mainHeadingContainer} >
+                <Text style={styles.registerText} >
                     Register
                 </Text>
             </View>
@@ -71,17 +71,17 @@ function RegisterScreen(props) {
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
                     {/*First Two Row Input fields */}
-                    <View style={{ marginTop: RFPercentage(5), width: '80%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' }} >
-                        <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', width: '48%', height: RFPercentage(8), backgroundColor: Colors.inputFieldBackgroundColor, borderColor: Colors.inputFieldBackgroundColor, borderWidth: RFPercentage(0.2), borderRadius: RFPercentage(1.3) }} >
+                    <View style={styles.firstTwoFieldsContainer} >
+                        <View style={styles.inputFOne}>
                             <TextInput placeholder='Name' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
                         </View>
-                        <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', position: 'absolute', right: 0, width: '48%', height: RFPercentage(8), backgroundColor: Colors.inputFieldBackgroundColor, borderColor: Colors.inputFieldBackgroundColor, borderWidth: RFPercentage(0.2), borderRadius: RFPercentage(1.3) }} >
+                        <View style={styles.inputFTwo} >
                             <TextInput placeholder='Surname' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
                         </View>
                     </View>
 
                     {/* Input field */}
-                    <View style={{ marginTop: RFPercentage(2.5), justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                    <View style={styles.mainInputFieldsContainer}>
                         {inputField.map((item, i) => (
                             <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(2.5) }} >
                                 <InputField
@@ -105,7 +105,7 @@ function RegisterScreen(props) {
                     </View>
 
                     {/* Register Button */}
-                    <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(12) }}>
+                    <View style={styles.buttonContainer}>
                         <MyAppButton
                             title="Register"
                             padding={RFPercentage(2.5)}
@@ -119,12 +119,12 @@ function RegisterScreen(props) {
                         />
                     </View>
 
-                    <View style={{ flexDirection: 'row', marginTop: RFPercentage(3.5), width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                        <Text style={{ fontFamily: 'Rubik_400Regular', color: Colors.white, fontSize: RFPercentage(2), textAlign: 'center' }} >
+                    <View style={styles.bottomTextContainer} >
+                        <Text style={styles.alreadyMemberText} >
                             Already a member?
                         </Text>
                         <TouchableOpacity onPress={() => props.navigation.navigate("SigninScreen")} activeOpacity={0.8} >
-                            <Text style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(1.5), color: Colors.secondary, fontSize: RFPercentage(2), textAlign: 'center', opacity: 0.8 }} >
+                            <Text style={styles.signInText} >
                                 Sign in
                             </Text>
                         </TouchableOpacity>
@@ -134,5 +134,91 @@ function RegisterScreen(props) {
         </Screen>
     );
 }
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: "center",
+        backgroundColor: Colors.primary
+    },
+    mainHeadingContainer: {
+        marginTop: RFPercentage(14),
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center'
+    },
+    registerText: {
+        fontFamily: 'Rubik_700Bold',
+        color: Colors.white,
+        fontSize: RFPercentage(2.8),
+        textAlign: 'center'
+    },
+    firstTwoFieldsContainer: {
+        marginTop: RFPercentage(5),
+        width: '80%',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    inputFOne: {
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'row',
+        width: '48%',
+        height: RFPercentage(8),
+        backgroundColor: Colors.inputFieldBackgroundColor,
+        borderColor: Colors.inputFieldBackgroundColor,
+        borderWidth: RFPercentage(0.2),
+        borderRadius: RFPercentage(1.3)
+    },
+    inputFTwo: {
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'row',
+        position: 'absolute',
+        right: 0,
+        width: '48%',
+        height: RFPercentage(8),
+        backgroundColor: Colors.inputFieldBackgroundColor,
+        borderColor: Colors.inputFieldBackgroundColor,
+        borderWidth: RFPercentage(0.2),
+        borderRadius: RFPercentage(1.3)
+    },
+    mainInputFieldsContainer: {
+        marginTop: RFPercentage(2.5),
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    },
+    buttonContainer: {
+        width: "100%",
+        alignItems: "center",
+        marginTop: RFPercentage(12)
+    },
+    bottomTextContainer: {
+        flexDirection: 'row',
+        marginTop: RFPercentage(3.5),
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center'
+    },
+    alreadyMemberText: {
+        fontFamily: 'Rubik_400Regular',
+        color: Colors.white,
+        fontSize: RFPercentage(2),
+        textAlign: 'center'
+    },
+    signInText: {
+        fontFamily: 'Rubik_400Regular',
+        marginLeft: RFPercentage(1.5),
+        color: Colors.secondary,
+        fontSize: RFPercentage(2),
+        textAlign: 'center',
+        opacity: 0.8
+    }
+})
 
 export default RegisterScreen;
