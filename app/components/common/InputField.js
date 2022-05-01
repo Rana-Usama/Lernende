@@ -19,6 +19,7 @@ function InputField({
     placeholderColor = "#B4B6B8",
     borderRadius = RFPercentage(1),
     backgroundColor = Colors.white,
+    placeholderLeft = false,
     keyboardType = "default",
     textCenter = "left",
     fontSize = RFPercentage(2.5),
@@ -61,7 +62,7 @@ function InputField({
                 keyboardType={keyboardType}
                 secureTextEntry={secure && !eyeIcon}
                 textAlign={textCenter}
-                style={{ color: color, alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: leftIconName ? "85%" : "90%" }}
+                style={{ left: placeholderLeft ? RFPercentage(1.4) : 0, color: color, alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: leftIconName ? "85%" : "90%" }}
                 {...otherProps}
             ></TextInput>
 

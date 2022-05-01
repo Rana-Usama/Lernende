@@ -15,6 +15,26 @@ function RegisterScreen(props) {
 
     const [indicator, showIndicator] = useState(false);
 
+    // For first two input fields
+
+    const [inputField2, SetInputField2] = useState([
+        {
+            placeholder: "First Name",
+            value: "",
+        },
+        {
+            placeholder: "Last Name",
+            value: "",
+        },
+    ]);
+
+    const handleChange2 = (text, i) => {
+        let tempfeilds = [...inputField2];
+        tempfeilds[i].value = text;
+        SetInputField2(tempfeilds);
+
+    };
+
     const [inputField, SetInputField] = useState([
         {
             placeholder: "Username",
@@ -72,16 +92,32 @@ function RegisterScreen(props) {
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
                     {/*First Two Row Input fields */}
-                    <View style={styles.firstTwoFieldsContainer} >
-                        <View style={styles.inputFOne}>
-                            <TextInput placeholder='Name' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
-                        </View>
-                        <View style={styles.inputFTwo} >
-                            <TextInput placeholder='Surname' placeholderTextColor={"#D0D0D0"} style={{ fontFamily: 'Rubik_400Regular', marginLeft: RFPercentage(2), width: '100%', color: Colors.white, fontSize: RFPercentage(1.9) }} />
-                        </View>
+
+                    <View style={{ marginTop: RFPercentage(2.8), justifyContent: 'center', flexDirection: 'row', alignItems: 'center', width: '80%' }}>
+                        {inputField2.map((item, i) => (
+                            <View key={i} style={{ marginLeft: i == 0 ? RFPercentage(11) : 0, marginRight: i == 1 ? RFPercentage(2.5) : 0 }} >
+                                <InputField
+                                    placeholder={item.placeholder}
+                                    placeholderColor={'#D0D0D0'}
+                                    height={RFPercentage(8.5)}
+                                    placeholderLeft={true}
+                                    backgroundColor={Colors.inputFieldBackgroundColor}
+                                    borderWidth={RFPercentage(0.2)}
+                                    fontFamily={'Rubik_400Regular'}
+                                    borderColor={Colors.inputFieldBackgroundColor}
+                                    secure={item.secure}
+                                    borderRadius={RFPercentage(1.3)}
+                                    fontSize={RFPercentage(2)}
+                                    handleFeild={(text) => handleChange2(text, i)}
+                                    value={item.value}
+                                    color={Colors.white}
+                                    width={i == 0 ? "80%" : "70%"}
+                                />
+                            </View>
+                        ))}
                     </View>
 
-                    {/* Input field */}
+                    {/* Next input fields */}
                     <View style={styles.mainInputFieldsContainer}>
                         {inputField.map((item, i) => (
                             <View key={i} style={{ marginTop: i == 0 ? 0 : RFPercentage(2.5) }} >
@@ -188,7 +224,7 @@ const styles = StyleSheet.create({
         borderRadius: RFPercentage(1.3)
     },
     mainInputFieldsContainer: {
-        marginTop: RFPercentage(2.5),
+        marginTop: RFPercentage(2.2),
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%'
